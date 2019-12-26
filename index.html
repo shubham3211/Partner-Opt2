@@ -374,10 +374,10 @@
               </div>
             </div>
           </div>
-          <button class="btn btn-primary carousel-control-prev rounded-circle" style="width: 40px; height: 50px; top: 25%; opacity: 1;" href="#testimonials" role="button" data-slide="prev">
+          <button class="btn btn-primary carousel-control-prev rounded-circle" style="width: 40px; height: 50px; top: 25%; left: -27px;;opacity: 1;" href="#testimonials" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           </button>
-          <button class="btn btn-primary carousel-control-next rounded-circle" style="width: 40px; height: 50px; top: 25%; opacity: 1;" href="#testimonials" role="button" data-slide="next">
+          <button class="btn btn-primary carousel-control-next rounded-circle" style="width: 40px; height: 50px; top: 25%; right: -27px;;opacity: 1;" href="#testimonials" role="button" data-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
           </button>
         </div>
@@ -430,15 +430,21 @@
         $(this).siblings(':first').children(':first-child').clone().appendTo($(this));
       }
     });
-    $('.carousel .carousel-item').each(function(){
-      $(this).children(':nth-child(2)').css('opacity', '1');
-      $(this).children(':nth-child(1), :nth-child(3)').css('opacity', '0.3');
-    });
+    if($( window ).width()>766){
+        $('.carousel .carousel-item').each(function(){
+          $(this).children(':nth-child(2)').css('opacity', '1');
+          $(this).children(':nth-child(1), :nth-child(3)').css('opacity', '0.3');
+        });
+      }else{
+        $('.carousel .carousel-item').each(function(){
+          $(this).children().css('opacity', '1');
+        });
+      }
     $(window).resize(() => {
       if($( window ).width()>766){
         $('.carousel .carousel-item').each(function(){
           $(this).children(':nth-child(2)').css('opacity', '1');
-          $(this).children(':nth-child(1), :nth-child(3)').css('opacity', '0.5');
+          $(this).children(':nth-child(1), :nth-child(3)').css('opacity', '0.3');
         });
       }else{
         $('.carousel .carousel-item').each(function(){
